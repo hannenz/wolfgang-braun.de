@@ -10,7 +10,7 @@
 		<meta name="description" content="">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<link rel="stylesheet" href="/css/main.css">
+		<link rel="stylesheet" href="/dist/css/main.css">
 
 
 		{LAYOUTMODE_STARTSCRIPT}
@@ -19,7 +19,7 @@
 		{ENDIF}
 	</head>
 	<body>
-		{INCLUDE:PATHTOWEBROOT.'img/svgdefs.svg'}
+		{INCLUDE:PATHTOWEBROOT.'dist/img/svgdefs.svg'}
 
 		<div class="outer-container">
 
@@ -31,7 +31,7 @@
 				<section class="page">
 					<header class="block-header">
 						<div class="block__mood">
-							<img src="/img/{PAGEPROPERTY:image:frau_800x400.jpg:{PAGEID}}" alt="" />
+							<img src="/media/{PAGEPROPERTY:image:frau_800x400.jpg:{PAGEID}}" alt="" />
 						</div>
 						<h1 class="block__title display-font">{PAGETITLE}</h1>
 						<p class="block__leitbild display-font">{PAGEPROPERTY:description::{PAGEID}}</p>
