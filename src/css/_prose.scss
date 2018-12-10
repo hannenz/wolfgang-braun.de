@@ -1,0 +1,17 @@
+.page.prose {
+	font-size:0.8125em;
+	padding:3em;
+
+	p {
+		// hyphens:auto;
+		text-indent:1.5em;
+		margin:0;
+	}
+
+	.author {
+		text-align:right;
+		&::before {
+			display:none;
+		}
+	}
+}

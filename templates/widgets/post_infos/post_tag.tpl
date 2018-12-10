@@ -1,0 +1,1 @@
+<a class="widgetTagLink" href="/{PAGELANG}/10/Themen.html?searchIn=tags&amp;search={VAR:tag}">{VAR:tag}</a> 

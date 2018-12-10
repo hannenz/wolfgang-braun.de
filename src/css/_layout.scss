@@ -1,0 +1,222 @@
+*, *::before, *::after {
+	box-sizing:border-box;
+	margin:0;
+	padding:0
+}
+
+html, body {
+	min-height:100%;
+}
+
+body {
+	background-color:#fafafb;
+	background-color:rgb(241, 241, 241);
+	// background-color:#fff;
+}
+
+.outer-container {
+	@include outer-container();
+	@include clearfix();
+}
+
+.main-header {
+	@include outer-container();
+
+	margin:0 0 1em 0;
+	background-color: #fff;
+	padding:1em;
+	
+	h1 {
+		margin:0;
+		line-height:1.75em;
+		font-size:1em;
+		display:inline-block;
+		border-top:3px solid $accent-color;
+		margin:0em 0 1em 0;
+
+		.icon {
+			//fill:$accent-color;
+			width:2rem;
+		}
+
+		a {
+			text-decoration: none;
+			color:$text-color;
+		}
+	}
+}
+
+.content, .page {
+	width:90%;
+	margin:0 auto;
+	background-color: #fff;
+	padding:2em 2em;
+}
+	
+@media screen and (min-width:1024px) {
+
+	body::before {
+		content:'';
+		position:fixed;
+		top:0;
+		left:0;
+		background-color:#fff;
+		min-height:100%;
+
+		width:25%;
+		width:-webkit-calc(50% - 325px);
+		width:calc(50% - 325px);
+		z-index:-1;
+		box-shadow: 0 0 1px rgba(30, 30, 30, 0.5);
+	}
+
+	.main-header {
+		float:left;
+		width:25%;
+		// position:fixed;
+		// top:0;
+
+		min-height:100%;
+		margin:0;
+		padding:4em 1em 0 1em;
+		
+		// margin-right:-100%;
+		// position:fixed;
+		// max-width:300px;
+	}
+
+	.test {
+		position:fixed;
+	}
+
+	.main-content {
+		width:75%;
+		float:left;
+		// margin-left:25%;
+		padding-top:1em;
+
+//		background-image: url('../img/frau.jpg');
+		background-repeat:no-repeat;
+		background-size:100% auto;
+		// background-attachment: fixed;
+		background-position:100% -200px;
+
+	}
+
+	.content, .page {
+		width:80%;
+		padding:2em 2em;
+		margin-bottom:3em;
+		box-shadow:0 0 4px rgba(30, 30, 30, 0.3);
+	}
+
+	.main-footer {
+		@include clearfix();
+		@include row();
+		width:75%;
+		float:right;
+
+		text-align:center;
+	}
+
+}
+
+
+
+.cards {
+	list-style-type:none;
+	padding:0 1em;
+	margin:0;
+	overflow:hidden;
+	@include clearfix();
+	@include row();
+}
+
+.card {
+	background-color:#fff;
+	box-shadow:0 0 4px rgba(30, 30, 30, 0.3);
+	padding:1em;
+	margin-bottom:1.5em;
+	position:relative;
+	padding-top:160px;
+
+	h2 {
+//		color:$accent-color;
+		height:3em;
+	}
+
+	a {
+		cursor:pointer;
+		text-decoration: none;
+		color:$text-color;
+		display:block;
+	}
+
+	figure {
+		width:100%;
+		position:absolute;
+		top:0;
+		left:0;
+		right:0;
+		height:150px;
+		overflow:hidden;
+	}
+
+	img {
+		width:100%;
+		height:auto;
+		position:absolute;
+		top:50%;
+		left:50%;
+		transition:200ms;
+		@include transform(translate(-50%, -50%) scale(1.3));
+	}
+	&:hover img {
+		@include transform(translate(-50%, -50%) scale(1));
+	}
+}
+
+
+@media screen and(min-width:768px) and (max-width:1023px) {
+
+	.card {
+		@include span-columns(6);
+		@include omega(2n);
+	}
+}
+
+@media screen and(min-width:1024px) {
+	.card {
+		@include span-columns(4);
+		@include omega(3n);
+	}
+}
+
+.block-header {
+	text-align:center;
+}
+
+.block__mood {
+	position:relative;
+	width:100%;
+	height:auto;
+	height:400px;
+	overflow:hidden;
+	margin-bottom:1.5em;
+	img {
+		width:100%;
+		position:absolute;
+		top:50%;
+		left:50%;
+		@include transform(translate(-50%, -50%));
+	}
+}
+
+
+.page.lyric {
+	img {
+		display:block;
+		max-width:100%;
+		margin:0 auto 1.5em auto;
+	}
+}

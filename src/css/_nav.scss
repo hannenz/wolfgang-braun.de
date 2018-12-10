@@ -1,0 +1,143 @@
+/**
+ * MAIN NAVIGATION
+ */
+.main-nav {
+	padding-bottom: 1em;
+	font-size: 1em;
+
+	ul ul {
+		display: none;
+	}
+
+	ul, li {
+		list-style-type: none;
+		padding: 0;
+	}
+
+	li {
+		display: inline-block;
+		margin: 0 0.4em;
+	}
+
+	li.is-current {
+		a {
+			color: $accent-color;
+			font-weight: bold;
+		}
+	}
+
+	a {
+		color: lighten($text-color, 50%);
+		text-decoration: none;
+		max-width: 12em;
+		&:hover {
+			color: $accent-color;
+		}
+	}
+
+}
+
+
+
+/**
+ * BLOCK INDEX NAVIGATION
+ */
+.block-index {
+
+	max-width: 30em;
+	margin: 3em auto;
+
+
+	li {
+		text-align: center;
+		list-style-type: none;
+		margin-bottom: 0.75em;
+	}
+
+	a {
+		text-decoration: none;
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
+
+
+/**
+ * MEDIA QUERIES
+ */
+
+@media screen and (min-width: 1024px) {
+	.main-nav {
+
+		ul ul {
+			display: block;
+		}
+		li {
+			display: block;
+			margin: 0.5em 0 0 2rem;
+			a {
+				display: block;
+			}
+		}
+
+		li li {
+			margin-left: 3rem;
+			a {
+				max-width: 11em;
+				text-indent: -1.5rem;
+			}
+		}
+	}
+}
+
+
+.page-footer {
+	text-align: center;
+
+	ul, li {
+		list-style-type:  none;
+	}
+}
+
+.pagination {
+	margin-top: 4.5em;
+	padding-top: 4.5em;
+
+
+	ul {
+		overflow: hidden;
+	}
+
+	a {
+		text-decoration: none;
+		&: hover {
+			text-decoration:  underline;
+		}
+	}
+
+	li {
+		width: 50%;
+		padding: 0 1em;
+		&.prev {
+			float: left;
+			text-align: left;
+		}
+		&.next {
+			float: right;
+			text-align: right;
+		}
+
+	}
+}
+
+.back-link {
+
+	clear: both;
+	display: block;
+	margin-top: 4.5em;
+
+	display: none;
+
+
+}

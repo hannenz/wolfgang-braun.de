@@ -1,0 +1,1 @@
+<p class="stanza">{TEXT:1:all}</p>

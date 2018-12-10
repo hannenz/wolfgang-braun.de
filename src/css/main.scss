@@ -1,0 +1,19 @@
+/**
+ * main sass file
+ */
+
+@import "bourbon/bourbon";
+@import "neat/neat";
+@import "settings";
+
+@import "icons";
+@import "typography";
+@import "layout";
+@import "nav";
+@import "prose";
+
+/* Formerly: quickfix.css */
+.author {
+	display: none;
+}
+
