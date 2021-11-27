@@ -17,3 +17,16 @@
 	display: none;
 }
 
+
+body {
+	> dialog::backdrop,
+	> dialog + .backdrop {
+		background-color: rgba(0, 0, 0, 0.4);
+	}
+
+	> dialog {
+		border: 0.01rem solid rgba(30, 30, 30, 0.2);
+		border-radius: 3px;
+		padding: 2rem 3rem;
+	}
+}

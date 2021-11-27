@@ -19,5 +19,6 @@
 							{ENDLOOP NAVIGATION}
 						</ul>
 					</nav>
+					<a href="mailto:wilk.braun@online.de">wilk.braun@online.de</a>
 				</div>
 			</header>

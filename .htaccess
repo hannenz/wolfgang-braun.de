@@ -1,8 +1,22 @@
 RewriteEngine on
 RewriteBase /
 
+
+
+<IfModule mod_env.c>
+	SetEnvIf Host "localhost" CMT_RUNTIME_ENVIRONMENT=development
+	SetEnvIf Host "staging\.wolfgang-braun\.com" CMT_RUNTIME_ENVIRONMENT=staging
+	SetEnvIf Host "^(www\.)?wolfgang-braun\.com" CMT_RUNTIME_ENVIRONMENT=production
+</IfModule>
+
 # own error documents
-# ErrorDocument 404 /de/3/404-page-not-found.html
+ErrorDocument 404 /index.php
+ErrorDocument 403 /index.php
+ErrorDocument 500 /index.php
+
+
+# Redirect from old backend location `admin` to new `contentomat`
+RewriteRule ^admin/(.*)$ /contentomat/$1 [R=301,NC,L]
 
 # SEO: redirect to homepage when URL is blank domain
 RewriteRule ^$ /de/1/Wolfgang-Braun.html [R=301,L]
@@ -14,6 +28,7 @@ RewriteRule ^$ /de/1/Wolfgang-Braun.html [R=301,L]
 
 #### content-o-mat: start ####
 
+
 # Content-o-mat: regular pages
 RewriteRule ^([^/]*)\/([0-9]+)\/.*\.html$ index.php?pid=$2&lang=$1&%{QUERY_STRING}&cmtRequestURL=%{REQUEST_URI}
 
@@ -24,12 +39,52 @@ RewriteRule ^([^/]*)\/([0-9]+)\/([^,]*),([0-9]{1,3}),([0-9]{1,2})?,([0-9]{1,6})\
 RewriteRule ^([^/]*)\/([0-9]+)\/([^/]*),([0-9]{1,3}),([0-9]{1,2})?\.html$ index.php?pid=$2&lang=$1&cp=$4&cat=$5&%{QUERY_STRING}&cmtRequestURL=%{REQUEST_URI}
 
 # MLog: shortcut
-RewriteRule ^([^/^.]*)$ index.php?pid=10&lang=de&shortcut=$1&%{QUERY_STRING}&cmtRequestURL=%{REQUEST_URI}
+RewriteRule ^([^/^.]{1,})$ index.php?pid=10&lang=de&shortcut=$1&%{QUERY_STRING}&cmtRequestURL=%{REQUEST_URI}
 
-#### content-o-mat: end ####
+# REST-API
+
+# Dont use R=30X redirects here, since these change alle requests to GET
+# requests and no POST / PUT / DELETE would be possible on the API
+# This setting must match the `prefix` option for the RestApi class constructor
+# (default: "cmtrestapi")
+RewriteRule ^api/?(.*)$ index.php/%{REQUEST_URI}?%{QUERY_STRING} [L]
+SetEnvIf Request_URI "/api/" CMT_RUNTIME_ENVIRONMENT=restapi
+
 
 # don't list *.inc, *.tpl (Templates) and .htaccess files
 <FilesMatch "\.(htaccess|inc|tpl)$">
 order deny,allow
 deny from all
 </FilesMatch>
+
+# compress text, html, javascript, css, xml and svg:
+<IfModule mod_deflate.c>
+	AddOutputFilterByType DEFLATE text/plain
+	AddOutputFilterByType DEFLATE text/html
+	AddOutputFilterByType DEFLATE text/xml
+	AddOutputFilterByType DEFLATE text/css
+	AddOutputFilterByType DEFLATE image/svg+xml
+	AddOutputFilterByType DEFLATE application/xml
+	AddOutputFilterByType DEFLATE application/xhtml+xml
+	AddOutputFilterByType DEFLATE application/rss+xml
+	AddOutputFilterByType DEFLATE application/javascript
+	AddOutputFilterByType DEFLATE application/x-javascript
+</IfModule>
+
+# Enable Browser caching
+<IfModule mod_expires.c>
+	ExpiresActive On
+	ExpiresByType image/gif "access plus 1 month"
+	ExpiresByType image/ico "access plus 1 month"
+	ExpiresByType image/jpeg "access plus 1 month"
+	ExpiresByType image/jpg "access plus 1 month"
+	ExpiresByType image/png "access plus 1 month"
+	ExpiresByType text/css "access plus 1 month"
+	ExpiresByType text/javascript "access plus 1 month"
+	ExpiresByType application/x-javascript "access plus 1 month"
+	ExpiresByType application/javascript "access plus 1 month"
+	ExpiresByType application/x-font-woff "access plus 1 month"
+	ExpiresByType video/mp4 "access plus 1 month"
+	ExpiresByType video/webm "access plus 1 month"
+  ExpiresByType image/svg+xml "access plus 1 month"
+</IfModule>

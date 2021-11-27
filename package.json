@@ -1,5 +1,5 @@
 {
-  "name": "wolfgang-braun.de",
+  "name": "wolfgang-braun",
   "version": "1.0.0",
   "description": "",
   "main": "gulpfile.js",
@@ -8,44 +8,42 @@
   },
   "repository": {
     "type": "git",
-    "url": "ssh://git@github.com/hannenz/wolfgang-braun.de.git"
+    "url": "ssh://git@gitlab.halma.dyndns.org:25676/halma/CHANGE-ME"
   },
-  "author": "Johannes Braun <johannes.braun@hannenz.de>",
+  "author": "CHANGE-ME",
   "license": "MIT",
-  "copyright": "Johannes Braun <johannes.braun@hannenz.de>",
+  "copyright": "HALMA GmbG & Co. KG",
   "devDependencies": {
-    "bourbon": "^5.0.0",
-    "bourbon-neat": "^1.9.0",
-    "browser-sync": "^2.18.13",
-    "del": "^3.0.0",
-    "git-rev-sync": "^1.9.1",
-    "gulp": "^4.0.0",
-    "gulp-autoprefixer": "^4.0.0",
-    "gulp-buster": "^1.1.0",
+    "browser-sync": "^2.26.14",
+    "del": "^6.0.0",
+    "fancy-log": "^1.3.3",
+    "git-rev-sync": "^3.0.1",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-clean-css": "^4.3.0",
     "gulp-concat": "^2.6.1",
-    "gulp-deporder": "^1.1.0",
-    "gulp-header": "^1.8.9",
-    "gulp-image-resize": "^0.13.0",
-    "gulp-imagemin": "^3.3.0",
-    "gulp-jsvalidate": "^3.0.0",
-    "gulp-load-plugins": "^1.5.0",
-    "gulp-newer": "^1.3.0",
-    "gulp-plumber": "^1.1.0",
-    "gulp-sass": "^3.1.0",
-    "gulp-sourcemaps": "^2.6.0",
-    "gulp-strip-debug": "^1.1.0",
-    "gulp-svgstore": "^6.1.0",
-    "gulp-uglify": "^3.0.0",
-    "gulp-util": "^3.0.8",
-    "jquery": "^3.3.1",
-    "moment": "^2.18.1",
-    "motion-ui": "^2.0.3"
+    "gulp-favicons": "^3.0.0",
+    "gulp-header": "^2.0.9",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-jsvalidate": "^5.0.0",
+    "gulp-load-plugins": "^2.0.6",
+    "gulp-newer": "^1.4.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^4.1.0",
+    "gulp-strip-debug": "^4.0.0",
+    "gulp-svgstore": "^7.0.1",
+    "gulp-terser": "^2.0.1",
+    "moment": "^2.29.1",
+    "yargs": "^17.0.1"
   },
   "project_settings": {
     "prefix": "./dist/"
   },
+  "browserslist": [
+    "> 2% in DE and not dead"
+  ],
   "dependencies": {
-    "foundation-sites": "^6.5.0-rc.2",
-    "jquery.appendgrid": "^1.7.1"
+    "dialog-polyfill": "^0.5.6"
   }
 }

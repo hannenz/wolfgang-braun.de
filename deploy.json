@@ -1,0 +1,58 @@
+{
+	"production": {
+		"mode": "ssh",
+		"hostname": "wolfgang-braun.de",
+		"ftp_hostname": "",
+		"ftp_username": "",
+		"ftp_password": "",
+		"remote_dir": "/www",
+		"local_dir": ".",
+		"db_settings_file": "contentomat/settings_db.inc",
+		"deploy_dirs": [
+			"phpincludes",
+			"templates",
+			"dist",
+			"index.php",
+			"cmt_constants.inc",
+			"robots.txt",
+			".htaccess"
+		],
+		"fetch_dirs": [
+			"media"
+		],
+		"cms_dirs": [
+			"contentomat/applications",
+			"contentomat/classes",
+			"contentomat/includes",
+			"contentomat/javascript",
+			"contentomat/templates/default",
+			"contentomat/vendor",
+			"contentomat/.htaccess",
+			"contentomat/ApplicationLauncher.php",
+			"contentomat/cmt_constants.inc",
+			"contentomat/CronjobController.php",
+			"contentomat/index.php",
+			"contentomat/LICENSE",
+			"contentomat/settings_db.default.inc",
+			"contentomat/settings_mail.default.inc",
+			"contentomat/sqldump.php",
+			"contentomat/VERSION",
+			"cmt_constants.inc",
+			".htaccess",
+			"index.php"
+		],
+		"deployignore": [
+			".git*",
+			"node_modules",
+			"package.json",
+			"package-lock.json",
+			"*.map",
+			"Session.vim",
+			"*~",
+			"*.sw?",
+			".DS_Store"
+		],
+		"fetchignore": [
+		]
+	}
+}

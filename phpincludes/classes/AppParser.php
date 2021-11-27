@@ -1,6 +1,7 @@
 <?php
 namespace Contentomat;
 
+
 /**
  * This Parser can be extended by own (project-specific) macros etc.
  */
@@ -15,9 +16,9 @@ class AppParser extends Parser {
 
 
 	public function __construct() {
-		error_reporting(E_ALL & ~ E_NOTICE);
 		ini_set('display_errors', true);
 		parent::__construct();
+		$this->Contentomat = \Contentomat\Contentomat::getContentomat();
 	}
 
 	/**
@@ -325,7 +326,7 @@ class AppParser extends Parser {
 			return '';
 		}
 
-		$ret = sprintf('<a href="/%s/%u/%s.html" title="%s">%s</a>', PAGELANG, $r['id'], makeNameWebsave($r['cmt_title']), $r['cmt_title'], $r['cmt_title']);
+		$ret = sprintf('<a href="/%s/%u/%s.html" title="%s">%s</a>', PAGELANG, $r['id'], $this->Contentomat->makeNameWebsave($r['cmt_title']), $r['cmt_title'], $r['cmt_title']);
 		return $ret;
 	}
 
@@ -350,7 +351,7 @@ class AppParser extends Parser {
 			return '';
 		}
 
-		$ret = sprintf('<a href="/%s/%u/%s.html" title="%s">%s</a>', PAGELANG, $r['id'], makeNameWebsave($r['cmt_title']), htmlentities($r['cmt_title']), htmlentities($r['cmt_title']));
+		$ret = sprintf('<a href="/%s/%u/%s.html" title="%s">%s</a>', PAGELANG, $r['id'], $this->Contentomat->makeNameWebsave($r['cmt_title']), htmlentities($r['cmt_title']), htmlentities($r['cmt_title']));
 		return $ret;
 	}
 
@@ -361,7 +362,7 @@ class AppParser extends Parser {
 		if (empty($r)) {
 			return 0;
 		}
-		return makeNameWebsave($r['cmt_title'] . '.html');
+		return $this->Contentomat->makeNameWebsave($r['cmt_title'] . '.html');
 
 	}
 }

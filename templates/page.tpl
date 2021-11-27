@@ -12,7 +12,6 @@
 
 		<link rel="stylesheet" href="/dist/css/main.css">
 
-
 		{LAYOUTMODE_STARTSCRIPT}
 		{IF (!{LAYOUTMODE})}
 		<!-- Add javascript libraries here -->
@@ -38,8 +37,7 @@
 
 		</div>
 
-
-
+		{INCLUDE:PATHTOWEBROOT.'templates/partials/bottom_scripts.tpl'}
 		{LAYOUTMODE_ENDSCRIPT}
 	</body>
 </html>

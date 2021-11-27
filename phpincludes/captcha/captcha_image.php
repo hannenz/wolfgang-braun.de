@@ -7,7 +7,6 @@
  * @version 2008-07-21
  * 
  */
-	error_reporting(0);
 	define ('PATHTOADMIN', '../../admin/');
 	define ('PATHTOWEBROOT', '../../');
 	require (PATHTOADMIN.'cmt_constants.inc');

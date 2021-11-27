@@ -48,6 +48,7 @@
 			</div>
 		</div>
 
+		{INCLUDE:PATHTOWEBROOT.'templates/partials/bottom_scripts.tpl'}
 		{LAYOUTMODE_ENDSCRIPT}
 	</body>
 </html>

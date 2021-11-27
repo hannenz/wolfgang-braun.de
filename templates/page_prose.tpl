@@ -11,7 +11,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
 		<link rel="stylesheet" href="/dist/css/main.css">
-
+		<script src="/dist/js/mail2dlg.js"></script>
 
 		{LAYOUTMODE_STARTSCRIPT}
 		{IF (!{LAYOUTMODE})}
@@ -37,6 +37,7 @@
 			</div>
 		</div>
 
+		{INCLUDE:PATHTOWEBROOT.'templates/partials/bottom_scripts.tpl'}
 		{LAYOUTMODE_ENDSCRIPT}
 	</body>
 </html>
